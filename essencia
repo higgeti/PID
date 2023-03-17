@@ -1,0 +1,9 @@
+//essencialmente um controlador PID funcionará da seguinte maneira
+//será necessário inicializar as variáveis de controle, kp, ki e kd, e determinar o setpoint(posicao_desejada)
+//o sistema deverá ser capaz de detectar a posicao_atual para computar os dados
+
+P = erro = posicao_desejada - posicao_atual //determina que distancia estamos do setpoint
+I = I+erro*deltaT                           //soma o valor do erro em si mesmo à cada iteração
+D = (erro - erro_anterior)/deltaT           //determina a diferença do quanto já foi corrigido
+controle = Kp*P + Ki*I + Kd*D               //variavel de saída, soma todos os parâmetros multiplicados por seus respectivos ganhos
+erro_anterior = erro                        //usado para função derivada
